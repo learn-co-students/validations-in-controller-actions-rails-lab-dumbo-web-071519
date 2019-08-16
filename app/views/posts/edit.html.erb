@@ -1,4 +1,12 @@
 <h2>Editing "<%= @post.title %>"</h2>
+<% if flash[:errors]  %>
+  <ul>
+  <%flash[:errors].each do |error_message|  %>
+    <li><%= error_message %></li> 
+  <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag post_path(@post), method: "patch" do %>
   <div class="field">
     <%= label_tag "title", "Title" %>
